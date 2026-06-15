@@ -9,9 +9,9 @@ import (
 	"io"
 )
 
-/**
- * Model for initing client
- */
+// Description:
+//
+// Model for initing client
 type Config struct {
 	// accesskey id
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
@@ -20,26 +20,66 @@ type Config struct {
 	// security token
 	SecurityToken *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
 	// http protocol
+	//
+	// example:
+	//
+	// http
 	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
 	// read timeout
+	//
+	// example:
+	//
+	// 10
 	ReadTimeout *int `json:"readTimeout,omitempty" xml:"readTimeout,omitempty"`
 	// connect timeout
+	//
+	// example:
+	//
+	// 10
 	ConnectTimeout *int `json:"connectTimeout,omitempty" xml:"connectTimeout,omitempty"`
 	// http proxy
+	//
+	// example:
+	//
+	// http://localhost
 	HttpProxy *string `json:"httpProxy,omitempty" xml:"httpProxy,omitempty"`
 	// https proxy
+	//
+	// example:
+	//
+	// https://localhost
 	HttpsProxy *string `json:"httpsProxy,omitempty" xml:"httpsProxy,omitempty"`
 	// endpoint
+	//
+	// example:
+	//
+	// cs.aliyuncs.com
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 	// proxy white list
+	//
+	// example:
+	//
+	// http://localhost
 	NoProxy *string `json:"noProxy,omitempty" xml:"noProxy,omitempty"`
 	// max idle conns
+	//
+	// example:
+	//
+	// 3
 	MaxIdleConns *int `json:"maxIdleConns,omitempty" xml:"maxIdleConns,omitempty"`
 	// user agent
+	//
+	// example:
+	//
+	// Alibabacloud/1
 	UserAgent *string `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
 	// socks5 proxy
 	Socks5Proxy *string `json:"socks5Proxy,omitempty" xml:"socks5Proxy,omitempty"`
 	// socks5 network
+	//
+	// example:
+	//
+	// TCP
 	Socks5NetWork *string `json:"socks5NetWork,omitempty" xml:"socks5NetWork,omitempty"`
 	// 长链接最大空闲时长
 	MaxIdleTimeMillis *int `json:"maxIdleTimeMillis,omitempty" xml:"maxIdleTimeMillis,omitempty"`
@@ -152,12 +192,24 @@ func (s *Config) SetMaxRequestsPerHost(v int) *Config {
 // Demo类1
 type DemoClass struct {
 	// 字符串测试
+	// example:
+	//
+	// some string
 	SomeString *string `json:"some_string,omitempty" xml:"some_string,omitempty" require:"true"`
 	// 日期测试
+	// example:
+	//
+	// 3
 	SomeDate *string `json:"some_date,omitempty" xml:"some_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// Boolean测试
+	// example:
+	//
+	// true
 	SomeBoolean *bool `json:"some_boolean,omitempty" xml:"some_boolean,omitempty" require:"true"`
 	// 整数测试
+	// example:
+	//
+	// 3
 	SomeInt *int64 `json:"some_int,omitempty" xml:"some_int,omitempty" require:"true" maximum:"2000" minimum:"1"`
 	// 列表测试
 	SomeList []*string `json:"some_list,omitempty" xml:"some_list,omitempty" require:"true" type:"Repeated"`
@@ -199,8 +251,14 @@ func (s *DemoClass) SetSomeList(v []*string) *DemoClass {
 // 返回结果测试类
 type ResultTest struct {
 	// 姓名
+	// example:
+	//
+	// 张三
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// test
+	// example:
+	//
+	// undefined
 	List *DemoClass `json:"list,omitempty" xml:"list,omitempty" require:"true"`
 }
 
@@ -225,8 +283,14 @@ func (s *ResultTest) SetList(v *DemoClass) *ResultTest {
 // 返回结果测试类
 type ResultTests struct {
 	// 姓名
+	// example:
+	//
+	// 张三
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 年龄
+	// example:
+	//
+	// 18
 	Age *string `json:"age,omitempty" xml:"age,omitempty" require:"true"`
 }
 
@@ -251,8 +315,14 @@ func (s *ResultTests) SetAge(v string) *ResultTests {
 // 1
 type TestDemo struct {
 	// 1
+	// example:
+	//
+	// 张三
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 1
+	// example:
+	//
+	// 23
 	Number *int64 `json:"number,omitempty" xml:"number,omitempty"`
 }
 
@@ -277,6 +347,9 @@ func (s *TestDemo) SetNumber(v int64) *TestDemo {
 // test
 type DemoTestHf struct {
 	// test
+	// example:
+	//
+	// undefined
 	Info *ResultTest `json:"info,omitempty" xml:"info,omitempty" require:"true"`
 }
 
@@ -296,9 +369,18 @@ func (s *DemoTestHf) SetInfo(v *ResultTest) *DemoTestHf {
 // InitPack
 type InitPack struct {
 	// 2022-11-07 14:48
+	// example:
+	//
+	// 2022-11-07 14:48
 	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 	// wanyi
+	// example:
+	//
+	// wanyi
 	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 1
+	// example:
+	//
 	// 1
 	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
 }
@@ -329,10 +411,19 @@ func (s *InitPack) SetCount(v int64) *InitPack {
 // 测试实体
 type SumBean struct {
 	// 元素名称
+	// example:
+	//
+	// 张三
 	EName *string `json:"e_name,omitempty" xml:"e_name,omitempty"`
 	// 数量
+	// example:
+	//
+	// 23
 	Num *int64 `json:"num,omitempty" xml:"num,omitempty"`
 	// test
+	// example:
+	//
+	// undefined
 	Info *ResultTests `json:"info,omitempty" xml:"info,omitempty" require:"true"`
 }
 
@@ -362,8 +453,14 @@ func (s *SumBean) SetInfo(v *ResultTests) *SumBean {
 // 键值对
 type XNameValuePair struct {
 	// 键名
+	// example:
+	//
+	// key
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 键值
+	// example:
+	//
+	// value
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -5497,10 +5594,11 @@ type Client struct {
 	MaxRequestsPerHost      *int
 }
 
-/**
- * Init client with Config
- * @param config config contains the necessary information to create a client
- */
+// Description:
+//
+// # Init client with Config
+//
+// @param config - config contains the necessary information to create a client
 func NewClient(config *Config) (*Client, error) {
 	client := new(Client)
 	err := client.Init(config)
@@ -5508,7 +5606,7 @@ func NewClient(config *Config) (*Client, error) {
 }
 
 func (client *Client) Init(config *Config) (_err error) {
-	if tea.BoolValue(util.IsUnset(tea.ToMap(config))) {
+	if tea.BoolValue(util.IsUnset(config)) {
 		_err = tea.NewSDKError(map[string]interface{}{
 			"code":    "ParameterMissing",
 			"message": "'config' can not be unset",
@@ -5537,16 +5635,23 @@ func (client *Client) Init(config *Config) (_err error) {
 	return nil
 }
 
-/**
- * Encapsulate the request and invoke the network
- * @param action api name
- * @param protocol http or https
- * @param method e.g. GET
- * @param pathname pathname of every api
- * @param request which contains request params
- * @param runtime which controls some details of call api, such as retry times
- * @return the response
- */
+// Description:
+//
+// # Encapsulate the request and invoke the network
+//
+// @param action - api name
+//
+// @param protocol - http or https
+//
+// @param method - e.g. GET
+//
+// @param pathname - pathname of every api
+//
+// @param request - which contains request params
+//
+// @param runtime - which controls some details of call api, such as retry times
+//
+// @return the response
 func (client *Client) DoRequest(version *string, action *string, protocol *string, method *string, pathname *string, request map[string]interface{}, headers map[string]*string, runtime *util.RuntimeOptions) (_result map[string]interface{}, _err error) {
 	_err = tea.Validate(runtime)
 	if _err != nil {
@@ -5597,7 +5702,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.4.7"),
+				"sdk_version":      tea.String("1.4.9"),
 				"_prod_code":       tea.String("DEMOSDK"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -5655,10 +5760,11 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 	return _resp, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryTestapi(request *QueryTestapiRequest) (_result *QueryTestapiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5671,10 +5777,11 @@ func (client *Client) QueryTestapi(request *QueryTestapiRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryTestapiEx(request *QueryTestapiRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTestapiResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5689,10 +5796,11 @@ func (client *Client) QueryTestapiEx(request *QueryTestapiRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 123
- * Summary: 123
- */
+// Description:
+//
+// Description: 123
+//
+// Summary: 123
 func (client *Client) RemarkTest(request *RemarkTestRequest) (_result *RemarkTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5705,10 +5813,11 @@ func (client *Client) RemarkTest(request *RemarkTestRequest) (_result *RemarkTes
 	return _result, _err
 }
 
-/**
- * Description: 123
- * Summary: 123
- */
+// Description:
+//
+// Description: 123
+//
+// Summary: 123
 func (client *Client) RemarkTestEx(request *RemarkTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RemarkTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5723,10 +5832,11 @@ func (client *Client) RemarkTestEx(request *RemarkTestRequest, headers map[strin
 	return _result, _err
 }
 
-/**
- * Description: 1
- * Summary: 1
- */
+// Description:
+//
+// Description: 1
+//
+// Summary: 1
 func (client *Client) TestPreFull(request *TestPreFullRequest) (_result *TestPreFullResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5739,10 +5849,11 @@ func (client *Client) TestPreFull(request *TestPreFullRequest) (_result *TestPre
 	return _result, _err
 }
 
-/**
- * Description: 1
- * Summary: 1
- */
+// Description:
+//
+// Description: 1
+//
+// Summary: 1
 func (client *Client) TestPreFullEx(request *TestPreFullRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *TestPreFullResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -5787,10 +5898,11 @@ func (client *Client) TestPreFullEx(request *TestPreFullRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryTum(request *QueryTumRequest) (_result *QueryTumResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5803,10 +5915,11 @@ func (client *Client) QueryTum(request *QueryTumRequest) (_result *QueryTumRespo
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryTumEx(request *QueryTumRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTumResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5821,10 +5934,11 @@ func (client *Client) QueryTumEx(request *QueryTumRequest, headers map[string]*s
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryTesx(request *QueryTesxRequest) (_result *QueryTesxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5837,10 +5951,11 @@ func (client *Client) QueryTesx(request *QueryTesxRequest) (_result *QueryTesxRe
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryTesxEx(request *QueryTesxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTesxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5855,10 +5970,11 @@ func (client *Client) QueryTesxEx(request *QueryTesxRequest, headers map[string]
 	return _result, _err
 }
 
-/**
- * Description: 工作台测试接口
- * Summary: 工作台测试接口
- */
+// Description:
+//
+// Description: 工作台测试接口
+//
+// Summary: 工作台测试接口
 func (client *Client) AaavTestLiuyz(request *AaavTestLiuyzRequest) (_result *AaavTestLiuyzResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5871,10 +5987,11 @@ func (client *Client) AaavTestLiuyz(request *AaavTestLiuyzRequest) (_result *Aaa
 	return _result, _err
 }
 
-/**
- * Description: 工作台测试接口
- * Summary: 工作台测试接口
- */
+// Description:
+//
+// Description: 工作台测试接口
+//
+// Summary: 工作台测试接口
 func (client *Client) AaavTestLiuyzEx(request *AaavTestLiuyzRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AaavTestLiuyzResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5889,10 +6006,11 @@ func (client *Client) AaavTestLiuyzEx(request *AaavTestLiuyzRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) QuerySyhf(request *QuerySyhfRequest) (_result *QuerySyhfResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5905,10 +6023,11 @@ func (client *Client) QuerySyhf(request *QuerySyhfRequest) (_result *QuerySyhfRe
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) QuerySyhfEx(request *QuerySyhfRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySyhfResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5923,10 +6042,11 @@ func (client *Client) QuerySyhfEx(request *QuerySyhfRequest, headers map[string]
 	return _result, _err
 }
 
-/**
- * Description: 测试sdk打包用
- * Summary: 测试sdk打包用
- */
+// Description:
+//
+// Description: 测试sdk打包用
+//
+// Summary: 测试sdk打包用
 func (client *Client) QueryBbbCcc(request *QueryBbbCccRequest) (_result *QueryBbbCccResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5939,10 +6059,11 @@ func (client *Client) QueryBbbCcc(request *QueryBbbCccRequest) (_result *QueryBb
 	return _result, _err
 }
 
-/**
- * Description: 测试sdk打包用
- * Summary: 测试sdk打包用
- */
+// Description:
+//
+// Description: 测试sdk打包用
+//
+// Summary: 测试sdk打包用
 func (client *Client) QueryBbbCccEx(request *QueryBbbCccRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBbbCccResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5957,10 +6078,11 @@ func (client *Client) QueryBbbCccEx(request *QueryBbbCccRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 测试用
- * Summary: 测试用
- */
+// Description:
+//
+// Description: 测试用
+//
+// Summary: 测试用
 func (client *Client) ImportBbbCci(request *ImportBbbCciRequest) (_result *ImportBbbCciResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5973,10 +6095,11 @@ func (client *Client) ImportBbbCci(request *ImportBbbCciRequest) (_result *Impor
 	return _result, _err
 }
 
-/**
- * Description: 测试用
- * Summary: 测试用
- */
+// Description:
+//
+// Description: 测试用
+//
+// Summary: 测试用
 func (client *Client) ImportBbbCciEx(request *ImportBbbCciRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportBbbCciResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -6021,10 +6144,11 @@ func (client *Client) ImportBbbCciEx(request *ImportBbbCciRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期全链路测试接口1
- * Summary: 个人工作台二期全链路测试接口1
- */
+// Description:
+//
+// Description: 个人工作台二期全链路测试接口1
+//
+// Summary: 个人工作台二期全链路测试接口1
 func (client *Client) QueryTimeLimit(request *QueryTimeLimitRequest) (_result *QueryTimeLimitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6037,10 +6161,11 @@ func (client *Client) QueryTimeLimit(request *QueryTimeLimitRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期全链路测试接口1
- * Summary: 个人工作台二期全链路测试接口1
- */
+// Description:
+//
+// Description: 个人工作台二期全链路测试接口1
+//
+// Summary: 个人工作台二期全链路测试接口1
 func (client *Client) QueryTimeLimitEx(request *QueryTimeLimitRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTimeLimitResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -6085,10 +6210,11 @@ func (client *Client) QueryTimeLimitEx(request *QueryTimeLimitRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期测试接口2
- * Summary: 个人工作台二期测试接口2
- */
+// Description:
+//
+// Description: 个人工作台二期测试接口2
+//
+// Summary: 个人工作台二期测试接口2
 func (client *Client) QueryCacheLimit(request *QueryCacheLimitRequest) (_result *QueryCacheLimitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6101,10 +6227,11 @@ func (client *Client) QueryCacheLimit(request *QueryCacheLimitRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期测试接口2
- * Summary: 个人工作台二期测试接口2
- */
+// Description:
+//
+// Description: 个人工作台二期测试接口2
+//
+// Summary: 个人工作台二期测试接口2
 func (client *Client) QueryCacheLimitEx(request *QueryCacheLimitRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCacheLimitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6119,10 +6246,11 @@ func (client *Client) QueryCacheLimitEx(request *QueryCacheLimitRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryBbbEee(request *QueryBbbEeeRequest) (_result *QueryBbbEeeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6135,10 +6263,11 @@ func (client *Client) QueryBbbEee(request *QueryBbbEeeRequest) (_result *QueryBb
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryBbbEeeEx(request *QueryBbbEeeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBbbEeeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6153,10 +6282,11 @@ func (client *Client) QueryBbbEeeEx(request *QueryBbbEeeRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 测试用
- * Summary: 测试用
- */
+// Description:
+//
+// Description: 测试用
+//
+// Summary: 测试用
 func (client *Client) QueryAaaTest(request *QueryAaaTestRequest) (_result *QueryAaaTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6169,10 +6299,11 @@ func (client *Client) QueryAaaTest(request *QueryAaaTestRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: 测试用
- * Summary: 测试用
- */
+// Description:
+//
+// Description: 测试用
+//
+// Summary: 测试用
 func (client *Client) QueryAaaTestEx(request *QueryAaaTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAaaTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6187,10 +6318,11 @@ func (client *Client) QueryAaaTestEx(request *QueryAaaTestRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) StabilizeBbbCcc(request *StabilizeBbbCccRequest) (_result *StabilizeBbbCccResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6203,10 +6335,11 @@ func (client *Client) StabilizeBbbCcc(request *StabilizeBbbCccRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) StabilizeBbbCccEx(request *StabilizeBbbCccRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *StabilizeBbbCccResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6221,10 +6354,11 @@ func (client *Client) StabilizeBbbCccEx(request *StabilizeBbbCccRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: r
- * Summary: r
- */
+// Description:
+//
+// Description: r
+//
+// Summary: r
 func (client *Client) QueryMultiCcc(request *QueryMultiCccRequest) (_result *QueryMultiCccResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6237,10 +6371,11 @@ func (client *Client) QueryMultiCcc(request *QueryMultiCccRequest) (_result *Que
 	return _result, _err
 }
 
-/**
- * Description: r
- * Summary: r
- */
+// Description:
+//
+// Description: r
+//
+// Summary: r
 func (client *Client) QueryMultiCccEx(request *QueryMultiCccRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMultiCccResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6255,10 +6390,11 @@ func (client *Client) QueryMultiCccEx(request *QueryMultiCccRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: l
- * Summary: l
- */
+// Description:
+//
+// Description: l
+//
+// Summary: l
 func (client *Client) QueryAaaCci(request *QueryAaaCciRequest) (_result *QueryAaaCciResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6271,10 +6407,11 @@ func (client *Client) QueryAaaCci(request *QueryAaaCciRequest) (_result *QueryAa
 	return _result, _err
 }
 
-/**
- * Description: l
- * Summary: l
- */
+// Description:
+//
+// Description: l
+//
+// Summary: l
 func (client *Client) QueryAaaCciEx(request *QueryAaaCciRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAaaCciResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6289,10 +6426,11 @@ func (client *Client) QueryAaaCciEx(request *QueryAaaCciRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 这是测试的
- * Summary: 这是测试的
- */
+// Description:
+//
+// Description: 这是测试的
+//
+// Summary: 这是测试的
 func (client *Client) QueryAaaSdk(request *QueryAaaSdkRequest) (_result *QueryAaaSdkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6305,10 +6443,11 @@ func (client *Client) QueryAaaSdk(request *QueryAaaSdkRequest) (_result *QueryAa
 	return _result, _err
 }
 
-/**
- * Description: 这是测试的
- * Summary: 这是测试的
- */
+// Description:
+//
+// Description: 这是测试的
+//
+// Summary: 这是测试的
 func (client *Client) QueryAaaSdkEx(request *QueryAaaSdkRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAaaSdkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6323,10 +6462,11 @@ func (client *Client) QueryAaaSdkEx(request *QueryAaaSdkRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: l
- * Summary: 测试
- */
+// Description:
+//
+// Description: l
+//
+// Summary: 测试
 func (client *Client) QueryMultiCciu(request *QueryMultiCciuRequest) (_result *QueryMultiCciuResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6339,10 +6479,11 @@ func (client *Client) QueryMultiCciu(request *QueryMultiCciuRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: l
- * Summary: 测试
- */
+// Description:
+//
+// Description: l
+//
+// Summary: 测试
 func (client *Client) QueryMultiCciuEx(request *QueryMultiCciuRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMultiCciuResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6357,10 +6498,11 @@ func (client *Client) QueryMultiCciuEx(request *QueryMultiCciuRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryTxt(request *QueryTxtRequest) (_result *QueryTxtResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6373,10 +6515,11 @@ func (client *Client) QueryTxt(request *QueryTxtRequest) (_result *QueryTxtRespo
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryTxtEx(request *QueryTxtRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTxtResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6391,10 +6534,11 @@ func (client *Client) QueryTxtEx(request *QueryTxtRequest, headers map[string]*s
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryRule(request *QueryRuleRequest) (_result *QueryRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6407,10 +6551,11 @@ func (client *Client) QueryRule(request *QueryRuleRequest) (_result *QueryRuleRe
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryRuleEx(request *QueryRuleRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRuleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6425,10 +6570,11 @@ func (client *Client) QueryRuleEx(request *QueryRuleRequest, headers map[string]
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期测试使用
- * Summary: 个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 个人工作台二期测试使用
+//
+// Summary: 个人工作台二期测试使用
 func (client *Client) ApiFileUpload(request *ApiFileUploadRequest) (_result *ApiFileUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6441,10 +6587,11 @@ func (client *Client) ApiFileUpload(request *ApiFileUploadRequest) (_result *Api
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期测试使用
- * Summary: 个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 个人工作台二期测试使用
+//
+// Summary: 个人工作台二期测试使用
 func (client *Client) ApiFileUploadEx(request *ApiFileUploadRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApiFileUploadResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -6489,10 +6636,11 @@ func (client *Client) ApiFileUploadEx(request *ApiFileUploadRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) QueryTesthfhfhf(request *QueryTesthfhfhfRequest) (_result *QueryTesthfhfhfResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6505,10 +6653,11 @@ func (client *Client) QueryTesthfhfhf(request *QueryTesthfhfhfRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) QueryTesthfhfhfEx(request *QueryTesthfhfhfRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTesthfhfhfResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6523,10 +6672,11 @@ func (client *Client) QueryTesthfhfhfEx(request *QueryTesthfhfhfRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) PublishIterationhf(request *PublishIterationhfRequest) (_result *PublishIterationhfResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6539,10 +6689,11 @@ func (client *Client) PublishIterationhf(request *PublishIterationhfRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) PublishIterationhfEx(request *PublishIterationhfRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PublishIterationhfResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6557,10 +6708,11 @@ func (client *Client) PublishIterationhfEx(request *PublishIterationhfRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 测试使用
- * Summary: 测试使用
- */
+// Description:
+//
+// Description: 测试使用
+//
+// Summary: 测试使用
 func (client *Client) QueryWorkbenchTests(request *QueryWorkbenchTestsRequest) (_result *QueryWorkbenchTestsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6573,10 +6725,11 @@ func (client *Client) QueryWorkbenchTests(request *QueryWorkbenchTestsRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 测试使用
- * Summary: 测试使用
- */
+// Description:
+//
+// Description: 测试使用
+//
+// Summary: 测试使用
 func (client *Client) QueryWorkbenchTestsEx(request *QueryWorkbenchTestsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryWorkbenchTestsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6591,10 +6744,11 @@ func (client *Client) QueryWorkbenchTestsEx(request *QueryWorkbenchTestsRequest,
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) ResetBbbCcc(request *ResetBbbCccRequest) (_result *ResetBbbCccResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6607,10 +6761,11 @@ func (client *Client) ResetBbbCcc(request *ResetBbbCccRequest) (_result *ResetBb
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) ResetBbbCccEx(request *ResetBbbCccRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ResetBbbCccResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6625,10 +6780,11 @@ func (client *Client) ResetBbbCccEx(request *ResetBbbCccRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryTestSss(request *QueryTestSssRequest) (_result *QueryTestSssResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6641,10 +6797,11 @@ func (client *Client) QueryTestSss(request *QueryTestSssRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) QueryTestSssEx(request *QueryTestSssRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTestSssResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6659,10 +6816,11 @@ func (client *Client) QueryTestSssEx(request *QueryTestSssRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 自动化测试创建test，请勿修改、删除
- * Summary: 自动化测试创建test，请勿修改、删除
- */
+// Description:
+//
+// Description: 自动化测试创建test，请勿修改、删除
+//
+// Summary: 自动化测试创建test，请勿修改、删除
 func (client *Client) BindAaaBbbCcc(request *BindAaaBbbCccRequest) (_result *BindAaaBbbCccResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6675,10 +6833,11 @@ func (client *Client) BindAaaBbbCcc(request *BindAaaBbbCccRequest) (_result *Bin
 	return _result, _err
 }
 
-/**
- * Description: 自动化测试创建test，请勿修改、删除
- * Summary: 自动化测试创建test，请勿修改、删除
- */
+// Description:
+//
+// Description: 自动化测试创建test，请勿修改、删除
+//
+// Summary: 自动化测试创建test，请勿修改、删除
 func (client *Client) BindAaaBbbCccEx(request *BindAaaBbbCccRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindAaaBbbCccResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6693,10 +6852,11 @@ func (client *Client) BindAaaBbbCccEx(request *BindAaaBbbCccRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 自动化测试创建test，请勿修改、删除
- * Summary: 自动化测试创建test1
- */
+// Description:
+//
+// Description: 自动化测试创建test，请勿修改、删除
+//
+// Summary: 自动化测试创建test1
 func (client *Client) QueryAaaCcd(request *QueryAaaCcdRequest) (_result *QueryAaaCcdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6709,10 +6869,11 @@ func (client *Client) QueryAaaCcd(request *QueryAaaCcdRequest) (_result *QueryAa
 	return _result, _err
 }
 
-/**
- * Description: 自动化测试创建test，请勿修改、删除
- * Summary: 自动化测试创建test1
- */
+// Description:
+//
+// Description: 自动化测试创建test，请勿修改、删除
+//
+// Summary: 自动化测试创建test1
 func (client *Client) QueryAaaCcdEx(request *QueryAaaCcdRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAaaCcdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6727,10 +6888,11 @@ func (client *Client) QueryAaaCcdEx(request *QueryAaaCcdRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 自动化测试创建test，请勿修改、删除
- * Summary: 自动化测试创建test，请勿修改、删除
- */
+// Description:
+//
+// Description: 自动化测试创建test，请勿修改、删除
+//
+// Summary: 自动化测试创建test，请勿修改、删除
 func (client *Client) BindXxx(request *BindXxxRequest) (_result *BindXxxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6743,10 +6905,11 @@ func (client *Client) BindXxx(request *BindXxxRequest) (_result *BindXxxResponse
 	return _result, _err
 }
 
-/**
- * Description: 自动化测试创建test，请勿修改、删除
- * Summary: 自动化测试创建test，请勿修改、删除
- */
+// Description:
+//
+// Description: 自动化测试创建test，请勿修改、删除
+//
+// Summary: 自动化测试创建test，请勿修改、删除
 func (client *Client) BindXxxEx(request *BindXxxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindXxxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6761,10 +6924,11 @@ func (client *Client) BindXxxEx(request *BindXxxRequest, headers map[string]*str
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryCimRun(request *QueryCimRunRequest) (_result *QueryCimRunResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6777,10 +6941,11 @@ func (client *Client) QueryCimRun(request *QueryCimRunRequest) (_result *QueryCi
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryCimRunEx(request *QueryCimRunRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCimRunResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6795,10 +6960,11 @@ func (client *Client) QueryCimRunEx(request *QueryCimRunRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryRoleList(request *QueryRoleListRequest) (_result *QueryRoleListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6811,10 +6977,11 @@ func (client *Client) QueryRoleList(request *QueryRoleListRequest) (_result *Que
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryRoleListEx(request *QueryRoleListRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRoleListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6829,10 +6996,11 @@ func (client *Client) QueryRoleListEx(request *QueryRoleListRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) ImportRole(request *ImportRoleRequest) (_result *ImportRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6845,10 +7013,11 @@ func (client *Client) ImportRole(request *ImportRoleRequest) (_result *ImportRol
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) ImportRoleEx(request *ImportRoleRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6863,10 +7032,11 @@ func (client *Client) ImportRoleEx(request *ImportRoleRequest, headers map[strin
 	return _result, _err
 }
 
-/**
- * Description: 测试流程
- * Summary: 测试流程
- */
+// Description:
+//
+// Description: 测试流程
+//
+// Summary: 测试流程
 func (client *Client) ResetRole(request *ResetRoleRequest) (_result *ResetRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6879,10 +7049,11 @@ func (client *Client) ResetRole(request *ResetRoleRequest) (_result *ResetRoleRe
 	return _result, _err
 }
 
-/**
- * Description: 测试流程
- * Summary: 测试流程
- */
+// Description:
+//
+// Description: 测试流程
+//
+// Summary: 测试流程
 func (client *Client) ResetRoleEx(request *ResetRoleRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ResetRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6897,10 +7068,11 @@ func (client *Client) ResetRoleEx(request *ResetRoleRequest, headers map[string]
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) PublishRoleList(request *PublishRoleListRequest) (_result *PublishRoleListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6913,10 +7085,11 @@ func (client *Client) PublishRoleList(request *PublishRoleListRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) PublishRoleListEx(request *PublishRoleListRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PublishRoleListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6931,10 +7104,11 @@ func (client *Client) PublishRoleListEx(request *PublishRoleListRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) InitUserTest(request *InitUserTestRequest) (_result *InitUserTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6947,10 +7121,11 @@ func (client *Client) InitUserTest(request *InitUserTestRequest) (_result *InitU
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) InitUserTestEx(request *InitUserTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *InitUserTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6965,10 +7140,11 @@ func (client *Client) InitUserTestEx(request *InitUserTestRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) ExecCim(request *ExecCimRequest) (_result *ExecCimResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6981,10 +7157,11 @@ func (client *Client) ExecCim(request *ExecCimRequest) (_result *ExecCimResponse
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) ExecCimEx(request *ExecCimRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecCimResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6999,10 +7176,11 @@ func (client *Client) ExecCimEx(request *ExecCimRequest, headers map[string]*str
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryCcXx(request *QueryCcXxRequest) (_result *QueryCcXxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7015,10 +7193,11 @@ func (client *Client) QueryCcXx(request *QueryCcXxRequest) (_result *QueryCcXxRe
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryCcXxEx(request *QueryCcXxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCcXxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7033,10 +7212,11 @@ func (client *Client) QueryCcXxEx(request *QueryCcXxRequest, headers map[string]
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) LyzaTest(request *LyzaTestRequest) (_result *LyzaTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7049,10 +7229,11 @@ func (client *Client) LyzaTest(request *LyzaTestRequest) (_result *LyzaTestRespo
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) LyzaTestEx(request *LyzaTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *LyzaTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7067,10 +7248,11 @@ func (client *Client) LyzaTestEx(request *LyzaTestRequest, headers map[string]*s
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) CTestLizAaa(request *CTestLizAaaRequest) (_result *CTestLizAaaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7083,10 +7265,11 @@ func (client *Client) CTestLizAaa(request *CTestLizAaaRequest) (_result *CTestLi
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) CTestLizAaaEx(request *CTestLizAaaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CTestLizAaaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7101,10 +7284,11 @@ func (client *Client) CTestLizAaaEx(request *CTestLizAaaRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) VerifyApiList(request *VerifyApiListRequest) (_result *VerifyApiListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7117,10 +7301,11 @@ func (client *Client) VerifyApiList(request *VerifyApiListRequest) (_result *Ver
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) VerifyApiListEx(request *VerifyApiListRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *VerifyApiListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7135,10 +7320,11 @@ func (client *Client) VerifyApiListEx(request *VerifyApiListRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用测试test
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用测试test
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) QueryWorkbenchTest(request *QueryWorkbenchTestRequest) (_result *QueryWorkbenchTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7151,10 +7337,11 @@ func (client *Client) QueryWorkbenchTest(request *QueryWorkbenchTestRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用测试test
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用测试test
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) QueryWorkbenchTestEx(request *QueryWorkbenchTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryWorkbenchTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7169,10 +7356,11 @@ func (client *Client) QueryWorkbenchTestEx(request *QueryWorkbenchTestRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) ImportCreateTest(request *ImportCreateTestRequest) (_result *ImportCreateTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7185,10 +7373,11 @@ func (client *Client) ImportCreateTest(request *ImportCreateTestRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) ImportCreateTestEx(request *ImportCreateTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportCreateTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7203,10 +7392,11 @@ func (client *Client) ImportCreateTestEx(request *ImportCreateTestRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 哈哈哈个人工作台二期测试接口test
- * Summary: 个人工作台二期测试接口
- */
+// Description:
+//
+// Description: 哈哈哈个人工作台二期测试接口test
+//
+// Summary: 个人工作台二期测试接口
 func (client *Client) QueryAbcdOne(request *QueryAbcdOneRequest) (_result *QueryAbcdOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7219,10 +7409,11 @@ func (client *Client) QueryAbcdOne(request *QueryAbcdOneRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: 哈哈哈个人工作台二期测试接口test
- * Summary: 个人工作台二期测试接口
- */
+// Description:
+//
+// Description: 哈哈哈个人工作台二期测试接口test
+//
+// Summary: 个人工作台二期测试接口
 func (client *Client) QueryAbcdOneEx(request *QueryAbcdOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAbcdOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7237,10 +7428,11 @@ func (client *Client) QueryAbcdOneEx(request *QueryAbcdOneRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期测试接口
- * Summary: 个人工作台二期测试接口
- */
+// Description:
+//
+// Description: 个人工作台二期测试接口
+//
+// Summary: 个人工作台二期测试接口
 func (client *Client) ImportAbcdOne(request *ImportAbcdOneRequest) (_result *ImportAbcdOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7253,10 +7445,11 @@ func (client *Client) ImportAbcdOne(request *ImportAbcdOneRequest) (_result *Imp
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期测试接口
- * Summary: 个人工作台二期测试接口
- */
+// Description:
+//
+// Description: 个人工作台二期测试接口
+//
+// Summary: 个人工作台二期测试接口
 func (client *Client) ImportAbcdOneEx(request *ImportAbcdOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportAbcdOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7271,10 +7464,11 @@ func (client *Client) ImportAbcdOneEx(request *ImportAbcdOneRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期分组路由灰度测试接口
- * Summary: 个人工作台二期分组路由灰度测试接口
- */
+// Description:
+//
+// Description: 个人工作台二期分组路由灰度测试接口
+//
+// Summary: 个人工作台二期分组路由灰度测试接口
 func (client *Client) ResetAbcdLimit(request *ResetAbcdLimitRequest) (_result *ResetAbcdLimitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7287,10 +7481,11 @@ func (client *Client) ResetAbcdLimit(request *ResetAbcdLimitRequest) (_result *R
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期分组路由灰度测试接口
- * Summary: 个人工作台二期分组路由灰度测试接口
- */
+// Description:
+//
+// Description: 个人工作台二期分组路由灰度测试接口
+//
+// Summary: 个人工作台二期分组路由灰度测试接口
 func (client *Client) ResetAbcdLimitEx(request *ResetAbcdLimitRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ResetAbcdLimitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7305,10 +7500,11 @@ func (client *Client) ResetAbcdLimitEx(request *ResetAbcdLimitRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期分组路由测试接口
- * Summary: 个人工作台二期分组路由测试接口
- */
+// Description:
+//
+// Description: 个人工作台二期分组路由测试接口
+//
+// Summary: 个人工作台二期分组路由测试接口
 func (client *Client) RegisterAbcdLimit(request *RegisterAbcdLimitRequest) (_result *RegisterAbcdLimitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7321,10 +7517,11 @@ func (client *Client) RegisterAbcdLimit(request *RegisterAbcdLimitRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期分组路由测试接口
- * Summary: 个人工作台二期分组路由测试接口
- */
+// Description:
+//
+// Description: 个人工作台二期分组路由测试接口
+//
+// Summary: 个人工作台二期分组路由测试接口
 func (client *Client) RegisterAbcdLimitEx(request *RegisterAbcdLimitRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterAbcdLimitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7339,10 +7536,11 @@ func (client *Client) RegisterAbcdLimitEx(request *RegisterAbcdLimitRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台预发测试使用
- * Summary: 个人工作台预发测试使用
- */
+// Description:
+//
+// Description: 个人工作台预发测试使用
+//
+// Summary: 个人工作台预发测试使用
 func (client *Client) QueryTwiceOne(request *QueryTwiceOneRequest) (_result *QueryTwiceOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7355,10 +7553,11 @@ func (client *Client) QueryTwiceOne(request *QueryTwiceOneRequest) (_result *Que
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台预发测试使用
- * Summary: 个人工作台预发测试使用
- */
+// Description:
+//
+// Description: 个人工作台预发测试使用
+//
+// Summary: 个人工作台预发测试使用
 func (client *Client) QueryTwiceOneEx(request *QueryTwiceOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTwiceOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7373,10 +7572,11 @@ func (client *Client) QueryTwiceOneEx(request *QueryTwiceOneRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) ImportTwiceOne(request *ImportTwiceOneRequest) (_result *ImportTwiceOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7389,10 +7589,11 @@ func (client *Client) ImportTwiceOne(request *ImportTwiceOneRequest) (_result *I
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) ImportTwiceOneEx(request *ImportTwiceOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportTwiceOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7407,10 +7608,11 @@ func (client *Client) ImportTwiceOneEx(request *ImportTwiceOneRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) PublishTwiceOne(request *PublishTwiceOneRequest) (_result *PublishTwiceOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7423,10 +7625,11 @@ func (client *Client) PublishTwiceOne(request *PublishTwiceOneRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) PublishTwiceOneEx(request *PublishTwiceOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PublishTwiceOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7441,10 +7644,11 @@ func (client *Client) PublishTwiceOneEx(request *PublishTwiceOneRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) ImportCreateOne(request *ImportCreateOneRequest) (_result *ImportCreateOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7457,10 +7661,11 @@ func (client *Client) ImportCreateOne(request *ImportCreateOneRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) ImportCreateOneEx(request *ImportCreateOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportCreateOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7475,10 +7680,11 @@ func (client *Client) ImportCreateOneEx(request *ImportCreateOneRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) QueryCreateTwo(request *QueryCreateTwoRequest) (_result *QueryCreateTwoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7491,10 +7697,11 @@ func (client *Client) QueryCreateTwo(request *QueryCreateTwoRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) QueryCreateTwoEx(request *QueryCreateTwoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreateTwoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7509,10 +7716,11 @@ func (client *Client) QueryCreateTwoEx(request *QueryCreateTwoRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) ImportCreateThree(request *ImportCreateThreeRequest) (_result *ImportCreateThreeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7525,10 +7733,11 @@ func (client *Client) ImportCreateThree(request *ImportCreateThreeRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) ImportCreateThreeEx(request *ImportCreateThreeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportCreateThreeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7543,10 +7752,11 @@ func (client *Client) ImportCreateThreeEx(request *ImportCreateThreeRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) WithdrawTwiceOne(request *WithdrawTwiceOneRequest) (_result *WithdrawTwiceOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7559,10 +7769,11 @@ func (client *Client) WithdrawTwiceOne(request *WithdrawTwiceOneRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) WithdrawTwiceOneEx(request *WithdrawTwiceOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *WithdrawTwiceOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7577,10 +7788,11 @@ func (client *Client) WithdrawTwiceOneEx(request *WithdrawTwiceOneRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) OperateTwiceOne(request *OperateTwiceOneRequest) (_result *OperateTwiceOneResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7593,10 +7805,11 @@ func (client *Client) OperateTwiceOne(request *OperateTwiceOneRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) OperateTwiceOneEx(request *OperateTwiceOneRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *OperateTwiceOneResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7611,10 +7824,11 @@ func (client *Client) OperateTwiceOneEx(request *OperateTwiceOneRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) QueryTwiceTwo(request *QueryTwiceTwoRequest) (_result *QueryTwiceTwoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7627,10 +7841,11 @@ func (client *Client) QueryTwiceTwo(request *QueryTwiceTwoRequest) (_result *Que
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) QueryTwiceTwoEx(request *QueryTwiceTwoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTwiceTwoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7645,10 +7860,11 @@ func (client *Client) QueryTwiceTwoEx(request *QueryTwiceTwoRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 测试刷新cachekey
- * Summary: 测试刷新cachekey
- */
+// Description:
+//
+// Description: 测试刷新cachekey
+//
+// Summary: 测试刷新cachekey
 func (client *Client) QueryTest(request *QueryTestRequest) (_result *QueryTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7661,10 +7877,11 @@ func (client *Client) QueryTest(request *QueryTestRequest) (_result *QueryTestRe
 	return _result, _err
 }
 
-/**
- * Description: 测试刷新cachekey
- * Summary: 测试刷新cachekey
- */
+// Description:
+//
+// Description: 测试刷新cachekey
+//
+// Summary: 测试刷新cachekey
 func (client *Client) QueryTestEx(request *QueryTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7679,10 +7896,11 @@ func (client *Client) QueryTestEx(request *QueryTestRequest, headers map[string]
 	return _result, _err
 }
 
-/**
- * Description: 测试刷新cachekey
- * Summary: 测试刷新cachekey
- */
+// Description:
+//
+// Description: 测试刷新cachekey
+//
+// Summary: 测试刷新cachekey
 func (client *Client) ImportTest(request *ImportTestRequest) (_result *ImportTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7695,10 +7913,11 @@ func (client *Client) ImportTest(request *ImportTestRequest) (_result *ImportTes
 	return _result, _err
 }
 
-/**
- * Description: 测试刷新cachekey
- * Summary: 测试刷新cachekey
- */
+// Description:
+//
+// Description: 测试刷新cachekey
+//
+// Summary: 测试刷新cachekey
 func (client *Client) ImportTestEx(request *ImportTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7713,10 +7932,11 @@ func (client *Client) ImportTestEx(request *ImportTestRequest, headers map[strin
 	return _result, _err
 }
 
-/**
- * Description: 测试灰度刷新缓存范围
- * Summary: 测试灰度刷新缓存范围
- */
+// Description:
+//
+// Description: 测试灰度刷新缓存范围
+//
+// Summary: 测试灰度刷新缓存范围
 func (client *Client) StabilizeTest(request *StabilizeTestRequest) (_result *StabilizeTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7729,10 +7949,11 @@ func (client *Client) StabilizeTest(request *StabilizeTestRequest) (_result *Sta
 	return _result, _err
 }
 
-/**
- * Description: 测试灰度刷新缓存范围
- * Summary: 测试灰度刷新缓存范围
- */
+// Description:
+//
+// Description: 测试灰度刷新缓存范围
+//
+// Summary: 测试灰度刷新缓存范围
 func (client *Client) StabilizeTestEx(request *StabilizeTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *StabilizeTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7747,10 +7968,11 @@ func (client *Client) StabilizeTestEx(request *StabilizeTestRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) QueryTwiceThree(request *QueryTwiceThreeRequest) (_result *QueryTwiceThreeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7763,10 +7985,11 @@ func (client *Client) QueryTwiceThree(request *QueryTwiceThreeRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) QueryTwiceThreeEx(request *QueryTwiceThreeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTwiceThreeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7781,10 +8004,11 @@ func (client *Client) QueryTwiceThreeEx(request *QueryTwiceThreeRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) ImportTwiceThree(request *ImportTwiceThreeRequest) (_result *ImportTwiceThreeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7797,10 +8021,11 @@ func (client *Client) ImportTwiceThree(request *ImportTwiceThreeRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) ImportTwiceThreeEx(request *ImportTwiceThreeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportTwiceThreeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7815,10 +8040,11 @@ func (client *Client) ImportTwiceThreeEx(request *ImportTwiceThreeRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 测试刷新cachekey
- * Summary: 测试刷新cachekey
- */
+// Description:
+//
+// Description: 测试刷新cachekey
+//
+// Summary: 测试刷新cachekey
 func (client *Client) UnstabilizeTest(request *UnstabilizeTestRequest) (_result *UnstabilizeTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7831,10 +8057,11 @@ func (client *Client) UnstabilizeTest(request *UnstabilizeTestRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 测试刷新cachekey
- * Summary: 测试刷新cachekey
- */
+// Description:
+//
+// Description: 测试刷新cachekey
+//
+// Summary: 测试刷新cachekey
 func (client *Client) UnstabilizeTestEx(request *UnstabilizeTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UnstabilizeTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7849,10 +8076,11 @@ func (client *Client) UnstabilizeTestEx(request *UnstabilizeTestRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryTestXc(request *QueryTestXcRequest) (_result *QueryTestXcResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7865,10 +8093,11 @@ func (client *Client) QueryTestXc(request *QueryTestXcRequest) (_result *QueryTe
 	return _result, _err
 }
 
-/**
- * Description: 测试
- * Summary: 测试
- */
+// Description:
+//
+// Description: 测试
+//
+// Summary: 测试
 func (client *Client) QueryTestXcEx(request *QueryTestXcRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTestXcResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7883,10 +8112,11 @@ func (client *Client) QueryTestXcEx(request *QueryTestXcRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) QueryTestSya(request *QueryTestSyaRequest) (_result *QueryTestSyaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7899,10 +8129,11 @@ func (client *Client) QueryTestSya(request *QueryTestSyaRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: test
- * Summary: test
- */
+// Description:
+//
+// Description: test
+//
+// Summary: test
 func (client *Client) QueryTestSyaEx(request *QueryTestSyaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTestSyaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7917,10 +8148,11 @@ func (client *Client) QueryTestSyaEx(request *QueryTestSyaRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) QueryQqqWww(request *QueryQqqWwwRequest) (_result *QueryQqqWwwResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7933,10 +8165,11 @@ func (client *Client) QueryQqqWww(request *QueryQqqWwwRequest) (_result *QueryQq
 	return _result, _err
 }
 
-/**
- * Description: 用于个人工作台二期测试使用
- * Summary: 用于个人工作台二期测试使用
- */
+// Description:
+//
+// Description: 用于个人工作台二期测试使用
+//
+// Summary: 用于个人工作台二期测试使用
 func (client *Client) QueryQqqWwwEx(request *QueryQqqWwwRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQqqWwwResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7951,10 +8184,11 @@ func (client *Client) QueryQqqWwwEx(request *QueryQqqWwwRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) StabilizeTwiceThree(request *StabilizeTwiceThreeRequest) (_result *StabilizeTwiceThreeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7967,10 +8201,11 @@ func (client *Client) StabilizeTwiceThree(request *StabilizeTwiceThreeRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) StabilizeTwiceThreeEx(request *StabilizeTwiceThreeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *StabilizeTwiceThreeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7985,10 +8220,11 @@ func (client *Client) StabilizeTwiceThreeEx(request *StabilizeTwiceThreeRequest,
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) UnstabilizeTwiceThree(request *UnstabilizeTwiceThreeRequest) (_result *UnstabilizeTwiceThreeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8001,10 +8237,11 @@ func (client *Client) UnstabilizeTwiceThree(request *UnstabilizeTwiceThreeReques
 	return _result, _err
 }
 
-/**
- * Description: 个人工作台二期预发测试
- * Summary: 个人工作台二期预发测试
- */
+// Description:
+//
+// Description: 个人工作台二期预发测试
+//
+// Summary: 个人工作台二期预发测试
 func (client *Client) UnstabilizeTwiceThreeEx(request *UnstabilizeTwiceThreeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UnstabilizeTwiceThreeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8019,10 +8256,11 @@ func (client *Client) UnstabilizeTwiceThreeEx(request *UnstabilizeTwiceThreeRequ
 	return _result, _err
 }
 
-/**
- * Description: 测试用
- * Summary: 测试用
- */
+// Description:
+//
+// Description: 测试用
+//
+// Summary: 测试用
 func (client *Client) QueryBbbAatest(request *QueryBbbAatestRequest) (_result *QueryBbbAatestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8035,10 +8273,11 @@ func (client *Client) QueryBbbAatest(request *QueryBbbAatestRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 测试用
- * Summary: 测试用
- */
+// Description:
+//
+// Description: 测试用
+//
+// Summary: 测试用
 func (client *Client) QueryBbbAatestEx(request *QueryBbbAatestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBbbAatestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8053,10 +8292,11 @@ func (client *Client) QueryBbbAatestEx(request *QueryBbbAatestRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) ParamLiuyzTest(request *ParamLiuyzTestRequest) (_result *ParamLiuyzTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8069,10 +8309,11 @@ func (client *Client) ParamLiuyzTest(request *ParamLiuyzTestRequest) (_result *P
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) ParamLiuyzTestEx(request *ParamLiuyzTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ParamLiuyzTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8087,10 +8328,11 @@ func (client *Client) ParamLiuyzTestEx(request *ParamLiuyzTestRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) LllProxyLyzTest(request *LllProxyLyzTestRequest) (_result *LllProxyLyzTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8103,10 +8345,11 @@ func (client *Client) LllProxyLyzTest(request *LllProxyLyzTestRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 测试接口
- * Summary: 测试接口
- */
+// Description:
+//
+// Description: 测试接口
+//
+// Summary: 测试接口
 func (client *Client) LllProxyLyzTestEx(request *LllProxyLyzTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *LllProxyLyzTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8121,10 +8364,11 @@ func (client *Client) LllProxyLyzTestEx(request *LllProxyLyzTestRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGatewayxFileUploadRequest) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8137,10 +8381,11 @@ func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGa
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUploadEx(request *CreateAntcloudGatewayxFileUploadRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
