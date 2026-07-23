@@ -498,28 +498,6 @@ func (s *TestParams) SetString_(v string) *TestParams {
 	return s
 }
 
-// aa
-type OrderA struct {
-	// aa
-	// example:
-	//
-	// a
-	Aaa *string `json:"aaa,omitempty" xml:"aaa,omitempty"`
-}
-
-func (s OrderA) String() string {
-	return tea.Prettify(s)
-}
-
-func (s OrderA) GoString() string {
-	return s.String()
-}
-
-func (s *OrderA) SetAaa(v string) *OrderA {
-	s.Aaa = &v
-	return s
-}
-
 // DEMOSDK结构体A·edit for test18
 type DemosdkStructA struct {
 	// 【公司名称】
@@ -3011,7 +2989,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.3.59"),
+				"sdk_version":      tea.String("1.3.53"),
 				"_prod_code":       tea.String("DEMOSDK"),
 				"_prod_channel":    tea.String("default"),
 			}
